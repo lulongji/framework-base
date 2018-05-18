@@ -6,15 +6,9 @@ import java.util.Map;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
- * PropertiesSource(属性信息源)用来统一负责管理指定的属性文件资源信息。
- * <p>
- * PropertiesSource继承了{@link InitializingBean}接口，会在初始化SpringBean时，使用
- * {@link PropertiesResourceParser}来加载、解析指定路径下的属性资源文件。
- * </p>
  * 
- * @ClassName:PropertiesSource
  * @author lu
- * @version 1.0
+ *
  */
 public class PropertiesSource implements InitializingBean {
 

@@ -18,20 +18,9 @@ import com.llj.framework.io.PropertiesResourceParser;
 import com.llj.framework.io.ResourceParseException;
 
 /**
- * AbstractPropertiesResourceParser作为PropertiesResourceParser的抽象实现类。
- * 此类中实现了PropertiesResourceParser定义的接口方法，但是通过定义一个抽象的返回方法。
- * <p>
- * AbstractPropertiesResourceParser中定义了两个属性：encoding和resourceLoader：
- * <ul>
- * <li>encoding:是指在读取属性文件时，为{@link InputStreamReader}设置读取字节的编码格式。</li>
- * <li>resourceLoader:指定读取属性文件的资源加载器,默认使用
- * {@link PathMatchingResourcePatternResolver}来解析path获得属性资源。</li>
- * </ul>
- * <strong>注意：当encoding为空时，我们将使用{@link InputStream }方式来读取属性文件。</strong>
- * </p>
  * 
  * @author lu
- * @version 1.0
+ *
  */
 public abstract class AbstractPropertiesResourceParser implements PropertiesResourceParser {
 

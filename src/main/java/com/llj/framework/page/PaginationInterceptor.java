@@ -27,7 +27,6 @@ import org.apache.ibatis.session.RowBounds;
  * 
  * @author lu
  */
-@SuppressWarnings("restriction")
 @Intercepts(@Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}))
 public class PaginationInterceptor implements Interceptor {
 	private static final List<ResultMapping> EMPTY_RESULTMAPPING = new ArrayList<ResultMapping>(0);

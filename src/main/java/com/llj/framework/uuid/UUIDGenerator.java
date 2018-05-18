@@ -1,13 +1,8 @@
-/**
- * 
- */
 package com.llj.framework.uuid;
 
 import java.net.InetAddress;
 
 /**
- * 
- * The only primary key generation method from Hibernate.
  * 
  * @author lu
  *
@@ -36,9 +31,6 @@ public class UUIDGenerator {
 
 	private short counter = (short) 0;
 	private final int JVM = (int) (System.currentTimeMillis() >>> 8);
-
-	public UUIDGenerator() {
-	}
 
 	/**
 	 * Unique across JVMs on this machine (unless they load this class in the
@@ -80,14 +72,14 @@ public class UUIDGenerator {
 
 	protected String format(int intval) {
 		String formatted = Integer.toHexString(intval);
-		StringBuffer buf = new StringBuffer("000000");
+		StringBuffer buf = new StringBuffer("00000000");
 		buf.replace(8 - formatted.length(), 8, formatted);
 		return buf.toString();
 	}
 
 	protected String format(short shortval) {
 		String formatted = Integer.toHexString(shortval);
-		StringBuffer buf = new StringBuffer("000");
+		StringBuffer buf = new StringBuffer("0000");
 		buf.replace(4 - formatted.length(), 4, formatted);
 		return buf.toString();
 	}
@@ -97,15 +89,4 @@ public class UUIDGenerator {
 				.append(format(getLoTime())).append(sep).append(format(getCount())).toString();
 	}
 
-	/**
-	 * test
-	 * 
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		UUIDGenerator uuid = new UUIDGenerator();
-		for (int i = 0; i < 100; i++) {
-			System.out.println(uuid.generate());
-		}
-	}
 }

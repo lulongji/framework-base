@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 查询参数对象
  * 
- * @author lu
+ * @author dubl
  */
 public class Page<T> {
 
@@ -30,7 +30,7 @@ public class Page<T> {
 
 	/** 查询的结果集合 */
 	private List<T> queryList;
-
+	
 	/**
 	 * 获取从查询询结果记录中开始提取记录的顺序号
 	 * 
@@ -142,7 +142,8 @@ public class Page<T> {
 		if (pageSize == 0) {
 			pageSize = 10;
 		}
-		this.totalPageNum = totalNum % pageSize == 0 ? totalNum / pageSize : totalNum / pageSize + 1;
+		this.totalPageNum = totalNum % pageSize == 0 ? totalNum / pageSize
+				: totalNum / pageSize + 1;
 	}
 
 	/**
