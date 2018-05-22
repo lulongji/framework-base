@@ -10,6 +10,7 @@ import java.io.Serializable;
 public class JsonResult implements Serializable {
 
 	private static final long serialVersionUID = 3178456659833086583L;
+
 	/** 状态码 */
 	private String code;
 
