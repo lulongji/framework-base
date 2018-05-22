@@ -27,8 +27,10 @@ import java.util.Map;
  */
 
 public abstract class LogAspect implements ILogAspect {
+	@SuppressWarnings("unused")
 	private static Logger logger = LogManager.getLogger("tracer");
 	private String requestPath = null; // 请求地址
+	@SuppressWarnings("unused")
 	private String userName = null; // 用户名
 	private Map<?, ?> inputParamMap = null; // 传入参数
 	private Map<String, Object> outputParamMap = null; // 存放输出结果

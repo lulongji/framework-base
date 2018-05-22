@@ -38,6 +38,7 @@ public class QDHessianServiceExporter extends HessianServiceExporter {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void handleHessianHeader(HttpServletRequest request) {
 		QDHessianHeaderContext.clear();
 		Enumeration enumeration = request.getHeaderNames();

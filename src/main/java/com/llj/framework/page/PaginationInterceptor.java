@@ -25,7 +25,7 @@ import org.apache.ibatis.session.RowBounds;
 /**
  * MyBatis分页拦截器
  * 
- * @author lu
+ * @author dubl
  */
 @Intercepts(@Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}))
 public class PaginationInterceptor implements Interceptor {

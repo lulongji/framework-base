@@ -35,6 +35,7 @@ public class MapPropertiesResourceParser extends AbstractPropertiesResourceParse
 		return getResult();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Map<String, String> parse(Resource[] resources) throws ResourceParseException {
 		if (resources == null)

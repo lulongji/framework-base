@@ -9,8 +9,9 @@ import java.net.URL;
 
 public class QDHessianProxyFactory extends HessianProxyFactory {
 
-    @Override
-    public Object create(Class api, String urlName, ClassLoader loader) throws MalformedURLException {
+    @SuppressWarnings("rawtypes")
+	@Override
+	public Object create(Class api, String urlName, ClassLoader loader) throws MalformedURLException {
         if(api == null) {
             throw new NullPointerException("api must not be null for HessianProxyFactory.create()");
         } else {
