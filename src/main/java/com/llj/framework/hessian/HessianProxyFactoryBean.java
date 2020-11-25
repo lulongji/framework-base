@@ -17,7 +17,8 @@ public class HessianProxyFactoryBean extends HessianClientInterceptor implements
 		this.beanClassLoader = classLoader;
 	}
 
-	public void afterPropertiesSet() {
+	@Override
+    public void afterPropertiesSet() {
 		super.afterPropertiesSet();
 		this.serviceProxy = (new ProxyFactory(this.getServiceInterface(), this)).getProxy(this.beanClassLoader);
 	}

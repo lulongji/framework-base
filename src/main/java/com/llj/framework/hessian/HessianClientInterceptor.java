@@ -26,7 +26,7 @@ public class HessianClientInterceptor extends UrlBasedRemoteAccessor implements 
     }
 
     public void setProxyFactory(HessianProxyFactory proxyFactory) {
-        this.proxyFactory = proxyFactory != null?proxyFactory:new HessianProxyFactory();
+        this.proxyFactory = proxyFactory != null ? proxyFactory : new HessianProxyFactory();
     }
 
     public void setSerializerFactory(SerializerFactory serializerFactory) {
@@ -49,6 +49,7 @@ public class HessianClientInterceptor extends UrlBasedRemoteAccessor implements 
         this.proxyFactory.setOverloadEnabled(overloadEnabled);
     }
 
+    @Override
     public void afterPropertiesSet() {
         super.afterPropertiesSet();
         this.prepare();
@@ -67,19 +68,20 @@ public class HessianClientInterceptor extends UrlBasedRemoteAccessor implements 
         return proxyFactory.create(this.getServiceInterface(), this.getServiceUrl());
     }
 
+    @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
-        if(this.hessianProxy == null) {
+        if (this.hessianProxy == null) {
             throw new IllegalStateException("HessianClientInterceptor is not properly initialized - invoke \'prepare\' before attempting any operations");
         } else {
             try {
                 return invocation.getMethod().invoke(this.hessianProxy, invocation.getArguments());
             } catch (InvocationTargetException var5) {
-                if(var5.getTargetException() instanceof HessianRuntimeException) {
-                    HessianRuntimeException utex1 = (HessianRuntimeException)var5.getTargetException();
-                    Object rootCause = utex1.getRootCause() != null?utex1.getRootCause():utex1;
-                    throw this.convertHessianAccessException((Throwable)rootCause);
-                } else if(var5.getTargetException() instanceof UndeclaredThrowableException) {
-                    UndeclaredThrowableException utex = (UndeclaredThrowableException)var5.getTargetException();
+                if (var5.getTargetException() instanceof HessianRuntimeException) {
+                    HessianRuntimeException utex1 = (HessianRuntimeException) var5.getTargetException();
+                    Object rootCause = utex1.getRootCause() != null ? utex1.getRootCause() : utex1;
+                    throw this.convertHessianAccessException((Throwable) rootCause);
+                } else if (var5.getTargetException() instanceof UndeclaredThrowableException) {
+                    UndeclaredThrowableException utex = (UndeclaredThrowableException) var5.getTargetException();
                     throw this.convertHessianAccessException(utex.getUndeclaredThrowable());
                 } else {
                     throw var5.getTargetException();
@@ -91,6 +93,6 @@ public class HessianClientInterceptor extends UrlBasedRemoteAccessor implements 
     }
 
     protected RemoteAccessException convertHessianAccessException(Throwable ex) {
-        return (RemoteAccessException)(ex instanceof ConnectException?new RemoteConnectFailureException("Cannot connect to Hessian remote service at [" + this.getServiceUrl() + "]", ex):new RemoteAccessException("Cannot access Hessian remote service at [" + this.getServiceUrl() + "]", ex));
+        return (RemoteAccessException) (ex instanceof ConnectException ? new RemoteConnectFailureException("Cannot connect to Hessian remote service at [" + this.getServiceUrl() + "]", ex) : new RemoteAccessException("Cannot access Hessian remote service at [" + this.getServiceUrl() + "]", ex));
     }
 }
