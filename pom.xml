@@ -27,6 +27,7 @@
         <httpclient.version>4.5</httpclient.version>
 
     </properties>
+
     <dependencies>
         <!-- 发布到服务器插件的依赖包 -->
         <dependency>
@@ -200,15 +201,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <attach>true</attach>
-                </configuration>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
-                        <phase>compile</phase>
+                        <id>attach-sources</id>
                         <goals>
-                            <goal>jar</goal>
+                            <goal>jar-no-fork</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -231,7 +229,7 @@
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
-                <version>0.9</version>
+                <version>0.12</version>
                 <configuration>
                     <message>Maven artifacts for ${project.version}</message>
                     <noJekyll>true</noJekyll>
@@ -257,6 +255,12 @@
         </plugins>
 
     </build>
+    <scm>
+        <url>https://github.com/lulongji/framework-base</url>
+        <connection>scm:git:ssh://git@github.com/lulongji/framework-base.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/lulongji/framework-base.git</developerConnection>
+        <tag>v1.0.0</tag>
+    </scm>
 
     <!--Add repositories-->
     <repositories>
@@ -264,11 +268,10 @@
             <id>releases</id>
             <name>lulongji</name>
             <url>https://raw.github.com/lulongji/maven/release/</url>
-        </repository>
-        <repository>
-            <id>snapshots</id>
-            <name>lulongji</name>
-            <url>https://raw.github.com/lulongji/maven/snapshot/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
         </repository>
     </repositories>
 
