@@ -54,18 +54,18 @@
         </dependency>
 
         <!-- json -->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba</groupId>-->
-<!--            <artifactId>fastjson</artifactId>-->
-<!--            <version>${fastjson.version}</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba</groupId>-->
+        <!--            <artifactId>fastjson</artifactId>-->
+        <!--            <version>${fastjson.version}</version>-->
+        <!--        </dependency>-->
 
-<!--        <dependency>-->
-<!--            <groupId>net.sf.json-lib</groupId>-->
-<!--            <artifactId>json-lib</artifactId>-->
-<!--            <version>2.4</version>-->
-<!--            <classifier>jdk15</classifier>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>net.sf.json-lib</groupId>-->
+        <!--            <artifactId>json-lib</artifactId>-->
+        <!--            <version>2.4</version>-->
+        <!--            <classifier>jdk15</classifier>-->
+        <!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/com.jcraft/jzlib -->
         <dependency>
@@ -268,13 +268,13 @@
     <!--Add repositories-->
     <repositories>
         <repository>
-            <id>haoch-maven-snapshot-repository</id>
-            <name>haoch-maven-snapshot-repository</name>
+            <id>snapshots</id>
+            <name>lulongji</name>
             <url>https://raw.github.com/lulongji/maven/snapshot/</url>
         </repository>
         <repository>
-            <id>haoch-maven-release-repository</id>
-            <name>haoch-maven-release-repository</name>
+            <id>releases</id>
+            <name>lulongji</name>
             <url>https://raw.github.com/lulongji/maven/release/</url>
         </repository>
     </repositories>
