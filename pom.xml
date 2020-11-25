@@ -234,7 +234,7 @@
                     <message>Maven artifacts for ${project.version}</message>
                     <noJekyll>true</noJekyll>
                     <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory><!--本地jar地址-->
-                    <branch>refs/heads/master</branch><!--branch必须是refs/heads/开头的，后边跟分支名称-->
+                    <branch>refs/heads/springboot-base</branch><!--branch必须是refs/heads/开头的，后边跟分支名称-->
                     <merge>true</merge>
                     <includes>
                         <include>**/*</include>
@@ -267,7 +267,7 @@
         <repository>
             <id>releases</id>
             <name>lulongji</name>
-            <url>https://raw.github.com/lulongji/framework-base/master</url>
+            <url>https://raw.github.com/lulongji/framework-base/tree/springboot-base</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
