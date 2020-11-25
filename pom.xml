@@ -9,6 +9,7 @@
     <url>http://blog.lulongji.cn</url>
 
     <properties>
+        <github.global.server>releases</github.global.server>
         <junit.version>4.12</junit.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -31,9 +32,18 @@
         <zxing.version>3.2.1</zxing.version>
         <fasterxml.jackson.core.version>2.1.0</fasterxml.jackson.core.version>
         <pinyin4j.version>2.5.1</pinyin4j.version>
+
     </properties>
 
     <dependencies>
+
+        <!-- 发布到服务器插件的依赖包 -->
+        <dependency>
+            <groupId>com.github.github</groupId>
+            <artifactId>site-maven-plugin</artifactId>
+            <version>0.9</version>
+            <type>maven-plugin</type>
+        </dependency>
 
         <!-- servlet -->
         <dependency>
@@ -375,6 +385,63 @@
                     </compilerArguments>
                 </configuration>
             </plugin>
+
+
+            <!--编译本地仓库包插件，生成target/mvn-repo下面-->
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.1</version>
+                <configuration>
+                    <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo
+                    </altDeploymentRepository>
+                </configuration>
+            </plugin>
+
+
+            <!--发布到服务器插件,需要依赖上面的部分-->
+            <!--查看aliyun的仓库https://maven.aliyun.com/mvn/search,发现需要依赖包-->
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.9</version>
+                <configuration>
+                    <message>Maven artifacts for ${project.version}</message>
+                    <noJekyll>true</noJekyll>
+                    <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory><!--本地jar地址-->
+                    <branch>refs/heads/master</branch><!--branch必须是refs/heads/开头的，后边跟分支名称-->
+                    <merge>true</merge>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                    <repositoryName>maven-repo</repositoryName> <!--对应github上创建的仓库名-->
+                    <repositoryOwner>your setting name</repositoryOwner> <!--github仓库所有者setting中的name-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
+
     </build>
+
+    <!--Add repositories-->
+    <repositories>
+        <repository>
+            <id>haoch-maven-snapshot-repository</id>
+            <name>haoch-maven-snapshot-repository</name>
+            <url>https://raw.github.com/lulongji/maven/snapshot/</url>
+        </repository>
+        <repository>
+            <id>haoch-maven-release-repository</id>
+            <name>haoch-maven-release-repository</name>
+            <url>https://raw.github.com/lulongji/maven/release/</url>
+        </repository>
+    </repositories>
+
 </project>
