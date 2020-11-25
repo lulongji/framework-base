@@ -75,14 +75,6 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.9.13</version>
-        </dependency>
-
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -96,7 +88,7 @@
         <dependency>
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
-            <version>3.2.1</version>
+            <version>3.2.2</version>
         </dependency>
 
         <dependency>
@@ -139,11 +131,6 @@
             <artifactId>jedis</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.thoughtworks.xstream</groupId>
-            <artifactId>xstream</artifactId>
-            <version>1.4.7</version>
-        </dependency>
 
         <!-- jdom -->
         <dependency>
@@ -171,7 +158,13 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>20.0</version>
+            <version>30.0-jre</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>1.4.14</version>
         </dependency>
         <dependency>
             <groupId>net.jcip</groupId>
@@ -248,8 +241,8 @@
                     <includes>
                         <include>**/*</include>
                     </includes>
-                    <repositoryName>maven-repo</repositoryName> <!--对应github上创建的仓库名-->
-                    <repositoryOwner>your setting name</repositoryOwner> <!--github仓库所有者setting中的name-->
+                    <repositoryName>framework-base</repositoryName> <!--对应github上创建的仓库名-->
+                    <repositoryOwner>lulongji</repositoryOwner> <!--github仓库所有者setting中的name-->
                 </configuration>
                 <executions>
                     <execution>
@@ -268,14 +261,14 @@
     <!--Add repositories-->
     <repositories>
         <repository>
-            <id>snapshots</id>
-            <name>lulongji</name>
-            <url>https://raw.github.com/lulongji/maven/snapshot/</url>
-        </repository>
-        <repository>
             <id>releases</id>
             <name>lulongji</name>
             <url>https://raw.github.com/lulongji/maven/release/</url>
+        </repository>
+        <repository>
+            <id>snapshots</id>
+            <name>lulongji</name>
+            <url>https://raw.github.com/lulongji/maven/snapshot/</url>
         </repository>
     </repositories>
 
