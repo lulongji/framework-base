@@ -16,7 +16,7 @@
     </parent>
 
     <properties>
-        <github.global.server>releases</github.global.server>
+        <github.global.server>github</github.global.server>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <framework.version>1.0.0-SNAPSHOT</framework.version>
         <java.version>1.8</java.version>
@@ -234,7 +234,7 @@
                     <message>Maven artifacts for ${project.version}</message>
                     <noJekyll>true</noJekyll>
                     <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory><!--本地jar地址-->
-                    <branch>refs/heads/springboot-base</branch><!--branch必须是refs/heads/开头的，后边跟分支名称-->
+                    <branch>refs/heads/mvn-repo</branch><!--branch必须是refs/heads/开头的，后边跟分支名称-->
                     <merge>true</merge>
                     <includes>
                         <include>**/*</include>
@@ -265,9 +265,9 @@
     <!--Add repositories-->
     <repositories>
         <repository>
-            <id>releases</id>
+            <id>github</id>
             <name>lulongji</name>
-            <url>https://raw.github.com/lulongji/framework-base/tree/springboot-base</url>
+            <url>https://raw.github.com/lulongji/framework-base/tree/mvn-repo</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
