@@ -1,6 +1,6 @@
 ### framework-base
 
-基础工具包
+基础工具包(Jdk1.8)
 
 - redis 封装工具类
 - cache 本地缓存封装工具类

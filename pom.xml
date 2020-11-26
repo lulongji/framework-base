@@ -267,7 +267,7 @@
         <repository>
             <id>github</id>
             <name>lulongji</name>
-            <url>https://raw.github.com/lulongji/framework-base/tree/mvn-repo</url>
+            <url>https://raw.github.com/lulongji/framework-base/mvn-repo</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
